@@ -1,10 +1,10 @@
+import Item from './Item'
 
-
-export default function ToDoItems({ tasks }) {
+export default function ToDoItems({ tasks, setTasks }) {
   return (
-    tasks.map((task, index) => {
+    tasks.map((task, idx, tasks) => {
       return (
-        <li key={index}>{task}</li>
+        <Item key={`${idx}${task}`} setTasks={setTasks} idx={idx} tasks={tasks} task={task} />
       )
     })
   )
