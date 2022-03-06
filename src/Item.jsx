@@ -1,6 +1,11 @@
 import './Item.css';
+import { NotesContext } from './Contexts/NotesContexts';
+import { useContext } from 'react';
 
-export default function Item({ idx, tasks, setTasks, task }) {
+export default function Item({ idx, task }) {
+
+  const { tasks, setTasks } = useContext(NotesContext);
+
   const handleDelete = () => {
     const newTasks = tasks.filter((_, i) => i !== idx);
     setTasks(newTasks);

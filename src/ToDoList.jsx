@@ -1,9 +1,11 @@
 import ToDoItems from './ToDoItems';
 import './ToDoList.css';
-import { useState } from "react";
+import { useContext } from "react";
+import { NotesContext } from './Contexts/NotesContexts';
 
 export default function ToDoList() {
-  const [tasks, setTasks] = useState([]);
+  const { tasks, setTasks } = useContext(NotesContext);
+
 
   const handleSumbit = (event) => {
     event.preventDefault();
@@ -12,6 +14,7 @@ export default function ToDoList() {
     setTasks([...tasks, task.value]);
     task.value = "";
   }
+
   return (
     <div className='to-do-list-container'>
       <h1>To Do List</h1>
@@ -20,7 +23,7 @@ export default function ToDoList() {
         <button type="submit">Add</button>
       </form>
       <ul>
-        <ToDoItems setTasks={setTasks} tasks={tasks} />
+        <ToDoItems />
       </ul>
     </div>
   )

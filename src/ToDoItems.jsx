@@ -1,10 +1,16 @@
 import Item from './Item'
+import { NotesContext } from './Contexts/NotesContexts';
+import { useContext } from 'react';
 
-export default function ToDoItems({ tasks, setTasks }) {
+export default function ToDoItems() {
+
+
+  const { tasks } = useContext(NotesContext);
+
   return (
-    tasks.map((task, idx, tasks) => {
+    tasks.map((task, idx) => {
       return (
-        <Item key={`${idx}${task}`} setTasks={setTasks} idx={idx} tasks={tasks} task={task} />
+        <Item idx={idx} task={task} />
       )
     })
   )
