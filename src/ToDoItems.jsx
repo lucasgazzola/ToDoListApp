@@ -3,8 +3,6 @@ import { NotesContext } from './Contexts/NotesContexts';
 import { useContext } from 'react';
 
 export default function ToDoItems() {
-
-
   const { tasks } = useContext(NotesContext);
 
   return (
